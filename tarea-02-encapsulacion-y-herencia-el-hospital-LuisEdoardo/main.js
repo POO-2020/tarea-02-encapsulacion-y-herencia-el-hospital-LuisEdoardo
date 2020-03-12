@@ -5,6 +5,7 @@ import Paciente from "./paciente.js"
 import Doctor from "./doctor.js"
 import Cita from "./cita.js"
 import Hospital from "./hospital.js"
+import PacienteAsegurado from "./paciente-asegurado.js"
 class Main{
 probarNombres(){
     console.log('<--------------------Nombres---------------------->')
@@ -84,6 +85,20 @@ probarHospital(){
     hospital.listarCitas()
 }
 
+    probarPacienteAsegurado(){
+        console.log('<--------------------Paciente Asegurado---------------------->')
+        let paciente = new PacienteAsegurado({
+            nombre: new Nombre("Luis", "Morales", "Leyva"),
+            fecha: new Fecha(20, 8, 2089),
+            numero: "3125679876",
+            numeroPoliza: "7890367",
+            fechaFinVigencia: new Fecha(21, 5, 2020),
+            compañia: "DmC F."
+
+        })
+        console.log(`${paciente.getPerfil()}`)
+    }
+
 }
 let app = new Main
 
@@ -94,3 +109,4 @@ app.probarPaciente()
 app.probarDoctor()
 app.probarCita()
 app.probarHospital()
+app.probarPacienteAsegurado()
