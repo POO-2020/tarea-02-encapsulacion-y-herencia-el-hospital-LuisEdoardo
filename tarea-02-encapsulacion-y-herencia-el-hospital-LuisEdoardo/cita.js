@@ -29,6 +29,6 @@ export default class Cita{
     }
 
     getPerfil(){
-        return `Cita No. # ${Math.trunc((Math.random() * (100 - 0) + 0))}\nFecha: ${this._fecha}\nHora: ${this._hora.getFormato12()}\nDoctor: ${this._doctor}\nPaciente: ${this._paciente}`
+        return `Cita No. # ${Math.trunc((Math.random() * (100 - 0) + 0))}\nFecha: ${this._fecha.getFecha()}\nHora: ${this._hora.getFormato24()}\nDoctor: ${this._doctor._nombre.getNombreCompleto()}\nPaciente: ${this._paciente._nombre.getNombreCompleto()}`
     }
 }

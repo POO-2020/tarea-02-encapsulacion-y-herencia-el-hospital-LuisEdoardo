@@ -26,7 +26,7 @@ const pacienteC = new Paciente({
 })
 
 const doctorA = new Doctor ({
-    cedula:"7267DDO273",
+    cedula:"536482FF",
      especialidad:"Pediatra",
     nombre: new Nombre("Alberto","Rosales", "Rosales"),
     telefono:"312122435"
@@ -74,32 +74,32 @@ class Main {
 
     probarPaciente() {
         let paciente = new Paciente({
-        nombre: new Nombre("Oscar Alfredo", "Ramirez", "Valenciana"),
-        fecha: new Fecha (16,4,1999),
-        numero: "3121222434",
+        nombre: new Nombre("Carolina", "Leyva", "Tirado"),
+        fecha: new Fecha (27, 3, 1981),
+        numero: "3121115744",
         })
         console.log("--------Paciente-----------")
         console.log(paciente.getPerfil())
     }
 
     probarPacienteAsegurado(){
-        let pacienteAsegurado1 = new PacienteAsegurado({
-            nombre: new Nombre ("Alfredo","Gomez", "Farias"),
-            fecha: new Fecha (1,3,2020),
-            numero: "3232321312",
-            numeroPoliza: "23232H",
-            fechaVigencia: new Fecha (1,5,2022),
-            compañia: "Dogoverso Inc."
+        let pacienteA = new PacienteAsegurado({
+            nombre: new Nombre ("Martin", "Gonzales", "Farias"),
+            fecha: new Fecha (1, 3, 2020),
+            numero: "3125678493",
+            numeroPoliza: "242384P",
+            fechaFinVigencia: new Fecha (1, 5, 2020),
+            compañia: "DmC F."
         })
         console.log("-----Paciente Asegurado----")
-        console.log(pacienteAsegurado1.getPerfil())
+        console.log(pacienteA.getPerfil())
     }
     
     probarDoctor() {
         let doctor = new Doctor ({
-        cedula: ("43HSK34KFJ3"),
+        cedula: ("2763HP546RT"),
         especialidad: ("Medico Cirujano"),
-        nombre: new Nombre("Roberto", "Mendoza","Perez"),
+        nombre: new Nombre("Ramon", "Morales", "Higuera"),
         telefono: ("312213342")
         })
         console.log("--------Doctores-----------")
@@ -108,13 +108,13 @@ class Main {
 
     probarCita() {
         let cita = new Cita ({
-        fecha: new Fecha(12,4,2020),
-        hora: new Tiempos (12,44, "pm"),
+        fecha: new Fecha(12, 4, 2020),
+        hora: new Tiempos (12, 44, "pm"),
         doctor: doctorC,
         paciente: pacienteA,
         })
         console.log("----------Citas------------")
-        console.log(cita.getCita())
+        console.log(cita.getPerfil())
     }
 
     probarHospital(){
@@ -126,14 +126,14 @@ class Main {
         
 
         let cita1 = new Cita ({
-            fecha:new Fecha(20,12,2020),
-            hora:new Tiempos(5,0,"pm"),
+            fecha:new Fecha(20 , 12, 2020),
+            hora:new Tiempos(5 , 0,"pm"),
             doctor: doctorA,
             paciente: pacienteB
         })
 
         let cita2 = new Cita ({
-            fecha:new Fecha(3,4,2020),
+            fecha:new Fecha(3, 4, 2020),
             hora:new Tiempos(4,0,"pm"),
             doctor: doctorC,
             paciente: pacienteC

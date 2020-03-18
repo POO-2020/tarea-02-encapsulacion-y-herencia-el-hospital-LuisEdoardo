@@ -1,15 +1,18 @@
+import Nombre from "./nombre.js"
+import Fecha from "./fecha.js"
+
 export default class Paciente{
     /**
-     * @param {string} nombre
-     * @param {number} fecha
+     * @param {Nombre} nombre
+     * @param {Fecha} fecha
      * @param {number} numero
      */
-    constructor(nombre, numero, fecha){
+    constructor({nombre, numero, fecha}){
         this._nombre = nombre
         this._fecha = fecha
         this._numero = numero
     }
     getPerfil(){
-        return `${this._nombre} ${this._fecha} ${this._numero}`
+        return `${this._nombre.getNombreCompleto()} ${this._fecha.getFecha()} ${this._numero}`
     }
 }
