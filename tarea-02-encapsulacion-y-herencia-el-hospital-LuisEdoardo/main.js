@@ -1,111 +1,187 @@
-import Nombre from "./nombre.js"
-import Fecha from "./fecha.js"
-import Tiempo from "./tiempo.js"
+import Tiempos from "./tiempo.js";
+import Nombre from "./nombre.js";
+import Fecha from "./fecha.js";
 import Paciente from "./paciente.js"
-import Doctor from "./doctor.js"
-import Cita from "./cita.js"
-import Hospital from "./hospital.js"
-import PacienteAsegurado from "./paciente-asegurado.js"
-class Main{
-probarNombres(){
-    console.log('<--------------------Nombres---------------------->')
-    let nombrePaciente = new Nombre('Luis Edoardo', 'Morales', 'Leyva')
-    console.log(nombrePaciente.getNombreCompleto())
-    console.log(nombrePaciente.getApellidoNombre())
-    console.log(nombrePaciente.getIniciales())
+import Doctor from "./doctor.js";
+import Cita from "./cita.js";
+import Hospital from "./hospital.js";
+import PacienteAsegurado from "./paciente-Asegurado.js"
 
-}
-probarTiempo(){
-console.log('<--------------------Tiempo---------------------->')
-let h = new Tiempo(17,25,"AM")
-console.log(h.getFormato24())
-console.log(h.getFormato12())
-}
+const pacienteA = new Paciente({
+    nombre: new Nombre("Josue Benjamin", "Iglesias", "Alcaraz"),
+    fecha: new Fecha (16 , 6, 2001),
+    numero: "3121226734",
+})
 
-probarFecha(){
-    console.log('<--------------------Fecha---------------------->')
-    let fecha = new Fecha(1,2,2000)
-    console.log(`El día fue ${fecha.getDiaFecha()}`);
-    console.log(`Han pasado ${fecha.getAños()} Años`)
-    console.log(`Han pasado ${fecha.getMeses()} Meses`);
-    console.log(`Han pasado ${fecha.getSemanas()} Semanas`);
-    console.log(`Han pasado ${fecha.getDias()} Días`);
-}
+const pacienteB = new Paciente({
+    nombre: new Nombre("Luis", "Morales", "Leyva"),
+    fecha: new Fecha (8, 8, 1995),
+    numero: "3124478909",
+})
 
-probarPaciente(){
-    console.log('<--------------------Paciente---------------------->')
-    let fecha = new Fecha(1, 2, 2000)
-    let nombrePaciente = new Nombre('Rodolfo Alar', 'Serrano', 'Elias')
-    let paciente = new Paciente(nombrePaciente.getNombreCompleto(), fecha.getFecha(), 3121890989)
-    console.log(`${paciente.getPerfil()}`)
-}
+const pacienteC = new Paciente({
+    nombre: new Nombre("Isabel", "Lugo", "Mendez"),
+    fecha: new Fecha (7, 3, 1990),
+    numero: "312672984",
+})
 
-probarDoctor(){
-    console.log('<--------------------Doctor---------------------->')
-    let nombreDoctor = new Nombre('José Carlos', 'Barboza', 'Mendez')
-    let doctor = new Doctor(56784321, 'Pediatra', nombreDoctor.getNombreCompleto(),3126783452)
-    console.log(`${doctor.getPerfil()}`)
-}
-probarCita(){
-    let cita = new Cita({
-        fecha: new Fecha(25, 3, 2020),
-        hora: new Tiempo(12, 30, "pm"),
-        doctor: new Doctor(27352752, 'Pediatra', 'Luis Edoardo Morales Leyva', 3126574899),
-        paciente: new Paciente('Luis', '24, 24, 24', 3122183967)
-    })
-    console.log('<--------------------Cita---------------------->')
-    console.log(cita.getPerfil())
-}
-probarHospital(){
-    console.log('<--------------------Hospital---------------------->')
-    let hospital = new Hospital('Puerta de vibranium', 'Pozayork 24')
-    let doctor1 = new Doctor(92637152, 'Neurologa', new Nombre('Myriam', 'Sanchez', 'Pereira').getNombreCompleto(), 3122768967)
-    let doctor2 = new Doctor(67263867, 'Ginecologo', new Nombre('Manuel', 'Manolo', 'Morales', 'Mora').getNombreCompleto(), 3122335086)
+const doctorA = new Doctor ({
+    cedula:"7267DDO273",
+     especialidad:"Pediatra",
+    nombre: new Nombre("Alberto","Rosales", "Rosales"),
+    telefono:"312122435"
+})
+const doctorB = new Doctor ({
+    cedula:"DBZ28638",
+    especialidad:"Cirujano",
+    nombre: new Nombre("Nestor", "Amezcua", "Luna"),
+    telefono:"312536489"
+})
+const doctorC = new Doctor ({
+    cedula:"GDLJ3467",
+    especialidad:"Cirujano",
+    nombre: new Nombre("Mario", "Cervantes", "Godinez"),
+    telefono:"3122389023"
+})
 
-    let cita1 = new Cita(
-        new Fecha(27, 2, 2020).getFecha(),
-        new Tiempo(18, 40, 'pm').getFormato12(),
-        new Doctor(42536727, 'Cirujano', new Nombre('Ivan', 'Iglesias', 'Covarrubias').getNombreCompleto(), 3127642354).getPerfil(),
-        new Paciente(new Nombre('Jezer', 'Aguirre', 'Ponce').getNombreCompleto(), new Fecha(23, 6, 1990).getFecha(), 3126373908).getPerfil()
-    )
+class Main {
+    probarTiempo() {
+        let horas = new Tiempos(5, 22, "am");
+        console.log("-----------Tiempo---------")
+        console.log(horas.getFormato12());
+        console.log(horas.getFormato24());
+    }
 
-    let cita2 = new Cita(
-        new Fecha(3, 3, 2020).getFecha(),
-        new Tiempo(11, 30, 'am').getFormato12(),
-        new Doctor(62735422, 'Urologo', new Nombre('Gustavo', 'Contreras', 'Guzman').getNombreCompleto(), 3122847536).getPerfil(),
-        new Paciente(new Nombre('Alar', 'Gonzales', 'Alcaraz').getNombreCompleto(), new Fecha(16, 8, 1995).getFecha(), 3126789356).getPerfil()
-    )
+    probarNombre() {
+        let people = new Nombre("Luis Edoardo", "Morales", "Leyva");
+        console.log("---------Nombre-----------")
+        console.log(people.getNombreCompleto())
+        console.log(people.getApellidoNombre())
+        console.log(people.getIniciales())
+    }
 
-    hospital.registrarDoctor(doctor1)
-    hospital.registrarDoctor(doctor2)
-    hospital.listarDoctores()
-    hospital.registrarCita(cita1)
-    hospital.registrarCita(cita2)
-    hospital.listarCitas()
-}
+    probarFecha() {
+        let dia = new Fecha(9 , 5, 1999)
+        
+        console.log("---------Fecha------------")
+        console.log(dia.getAños())
+        console.log(dia.getMeses())
+        console.log(dia.getSemanas())
+        console.log(dia.getDias())
+        console.log(dia.getFecha())
+        console.log(dia.getDiaFecha())
+    }
+
+    probarPaciente() {
+        let paciente = new Paciente({
+        nombre: new Nombre("Oscar Alfredo", "Ramirez", "Valenciana"),
+        fecha: new Fecha (16,4,1999),
+        numero: "3121222434",
+        })
+        console.log("--------Paciente-----------")
+        console.log(paciente.getPerfil())
+    }
 
     probarPacienteAsegurado(){
-        console.log('<--------------------Paciente Asegurado---------------------->')
-        let paciente = new PacienteAsegurado({
-            nombre: new Nombre("Luis", "Morales", "Leyva"),
-            fecha: new Fecha(20, 8, 2089),
-            numero: "3125679876",
-            numeroPoliza: "7890367",
-            fechaFinVigencia: new Fecha(21, 5, 2020),
-            compañia: "DmC F."
-
+        let pacienteAsegurado1 = new PacienteAsegurado({
+            nombre: new Nombre ("Alfredo","Gomez", "Farias"),
+            fecha: new Fecha (1,3,2020),
+            numero: "3232321312",
+            numeroPoliza: "23232H",
+            fechaVigencia: new Fecha (1,5,2022),
+            compañia: "Dogoverso Inc."
         })
-        console.log(`${paciente.getPerfil()}`)
+        console.log("-----Paciente Asegurado----")
+        console.log(pacienteAsegurado1.getPerfil())
+    }
+    
+    probarDoctor() {
+        let doctor = new Doctor ({
+        cedula: ("43HSK34KFJ3"),
+        especialidad: ("Medico Cirujano"),
+        nombre: new Nombre("Roberto", "Mendoza","Perez"),
+        telefono: ("312213342")
+        })
+        console.log("--------Doctores-----------")
+        console.log(doctor.getPerfilb())
+    }
+
+    probarCita() {
+        let cita = new Cita ({
+        fecha: new Fecha(12,4,2020),
+        hora: new Tiempos (12,44, "pm"),
+        doctor: doctorC,
+        paciente: pacienteA,
+        })
+        console.log("----------Citas------------")
+        console.log(cita.getCita())
+    }
+
+    probarHospital(){
+        let hospitalA = new Hospital ({
+            nombre:"Clinica #4",
+            direccion:"Avenida Madero, #455"
+        })
+        console.log("---------Hospital----------")
+        
+
+        let cita1 = new Cita ({
+            fecha:new Fecha(20,12,2020),
+            hora:new Tiempos(5,0,"pm"),
+            doctor: doctorA,
+            paciente: pacienteB
+        })
+
+        let cita2 = new Cita ({
+            fecha:new Fecha(3,4,2020),
+            hora:new Tiempos(4,0,"pm"),
+            doctor: doctorC,
+            paciente: pacienteC
+        })
+        hospitalA.registrarDoctor(doctorA)
+        hospitalA.registrarDoctor(doctorB)
+        hospitalA.registrarDoctor(doctorC)
+        hospitalA.listarDoctores()
+        console.log('----Buscar Doctor----')
+        console.log(hospitalA._buscarDoctor(doctorA))
+        console.log(hospitalA._buscarDoctor(doctorB))
+        console.log(hospitalA._buscarDoctor(doctorC))
+        console.log('----Encontrar Indice----')
+        console.log(hospitalA._encontrarIndiceDoctor(doctorA))
+        console.log(hospitalA._encontrarIndiceDoctor(doctorB))
+        console.log(hospitalA._encontrarIndiceDoctor(doctorC))
+        console.log('----Eliminar Doctor----')
+        console.log(hospitalA._eliminarDoctor(doctorA))
+        hospitalA.listarDoctores()
+        console.log('----Actualizar Doctores----')
+        console.log(hospitalA.actualizarDoctor(doctorB,doctorA))
+        hospitalA.listarDoctores() 
+        console.log('')
+        hospitalA.registrarCita(cita1)
+        hospitalA.registrarCita(cita2)
+        hospitalA.listarCitas()
+        console.log('----Buscar Cita----')
+        console.log(hospitalA._buscarCita(cita1))
+        console.log(hospitalA._buscarCita(cita2))
+        console.log('----Encontrar Indice----')
+        console.log(hospitalA._encontrarIndiceCita(cita1))
+        console.log(hospitalA._encontrarIndiceCita(cita2))
+        console.log('----Eliminar Cita----')
+        console.log(hospitalA._eliminarCita(cita1))
+        hospitalA.listarCitas()
+        console.log('----Actualizar Cita----')
+        console.log(hospitalA.actualizarCita(cita2,cita1))
+        hospitalA.listarCitas()
     }
 
 }
-let app = new Main
 
-app.probarNombres()
-app.probarTiempo()
-app.probarFecha()
-app.probarPaciente()
-app.probarDoctor()
-app.probarCita()
-app.probarHospital()
-app.probarPacienteAsegurado()
+let app = new Main()
+app.probarTiempo();
+app.probarNombre();
+app.probarFecha();
+app.probarPaciente();
+app.probarDoctor();
+app.probarCita();
+app.probarHospital();
+app.probarPacienteAsegurado();

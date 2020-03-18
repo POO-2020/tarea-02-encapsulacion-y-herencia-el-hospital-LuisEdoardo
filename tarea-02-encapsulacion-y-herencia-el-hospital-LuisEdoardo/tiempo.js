@@ -11,27 +11,20 @@ export default class Tiempo{
         this._periodo = periodo.toLowerCase()
         
     }
-    getFormato24(){
-        let hora = this._hora
-        if(this.periodo === "pm"){
-            hora = hora +12
-            return `${hora}:${this._minutos}`
-        }else{
-            return `${hora}:${this._minutos}`
-        }
+
+getFormato12(){
+    return `${this._hora} ${this._minutos} ${this._periodo}`
     }
-    getFormato12(){
-        let hora = this._hora
-        if (hora >= 12){
-            this._periodo = 'pm'
-            hora = hora - 12 
-            return `${hora}:${this._minutos}:${this._periodo}`
-            
-        }else{
-            this._periodo = 'am'
-            return `${hora}:${this._minutos}:${this._periodo}`
+
+
+
+getFormato24(){
+    if(this._periodo == 'pm'){
+        let horaM = this._hora + 12
+            return `${horaM} ${this._minutos}`
+        } else{
+            return `${this._hora} ${this.minutos}`
         }
-        
+
     }
 }
-
