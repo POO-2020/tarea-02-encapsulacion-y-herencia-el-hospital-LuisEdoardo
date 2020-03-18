@@ -47,15 +47,14 @@ probarDoctor(){
     console.log(`${doctor.getPerfil()}`)
 }
 probarCita(){
+    let cita = new Cita({
+        fecha: new Fecha(25, 3, 2020),
+        hora: new Tiempo(12, 30, "pm"),
+        doctor: new Doctor(27352752, 'Pediatra', 'Luis Edoardo Morales Leyva', 3126574899),
+        paciente: new Paciente('Luis', '24, 24, 24', 3122183967)
+    })
     console.log('<--------------------Cita---------------------->')
-    let nombrePaciente = new Nombre('Alvaro', 'Morales', 'Leyva')
-    let fechaPaciente = new Fecha(24, 3, 2001)
-    let paciente = new Paciente(nombrePaciente.getNombreCompleto(), fechaPaciente.getFecha(), 3129027892)
-    let doctor = new Nombre('Carolina', 'Leyva', 'Tirado')
-    let fecha = new Fecha(25, 2, 2020)
-    let tiempo = new Tiempo(9,36, 'am')
-    let cita = new Cita(fecha.getFecha(),tiempo.getFormato12(),doctor.getNombreCompleto(),paciente.getPerfil())
-    console.log(`${cita.getPerfil()}`)
+    console.log(cita.getPerfil())
 }
 probarHospital(){
     console.log('<--------------------Hospital---------------------->')
