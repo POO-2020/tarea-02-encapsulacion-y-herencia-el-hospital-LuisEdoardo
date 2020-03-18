@@ -38,6 +38,6 @@ getFecha(){
     return `${this._fecha.getDate()}/${this._meses[this._fecha.getMonth()]}/${this._fecha.getFullYear()}`
 }
 getDiaFecha(){
-    return `${this._dia[this._fecha.getDay() -1]}`
+    return `${this._dia[this._fecha.getDay()]}`
 }
 }

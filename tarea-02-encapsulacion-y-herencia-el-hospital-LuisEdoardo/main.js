@@ -46,18 +46,18 @@ const doctorC = new Doctor ({
 
 class Main {
     probarTiempo() {
-        let horas = new Tiempos(5, 22, "am");
+        let horas = new Tiempos(11, 22, "pm");
         console.log("-----------Tiempo---------")
         console.log(horas.getFormato12());
         console.log(horas.getFormato24());
     }
 
     probarNombre() {
-        let people = new Nombre("Luis Edoardo", "Morales", "Leyva");
+        let nombre = new Nombre("Luis Edoardo", "Morales", "Leyva");
         console.log("---------Nombre-----------")
-        console.log(people.getNombreCompleto())
-        console.log(people.getApellidoNombre())
-        console.log(people.getIniciales())
+        console.log(nombre.getNombreCompleto())
+        console.log(nombre.getApellidoNombre())
+        console.log(nombre.getIniciales())
     }
 
     probarFecha() {
